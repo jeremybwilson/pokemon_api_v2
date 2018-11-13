@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class='container'>
+    <div class="row">
+      <div class="col text-center">
+        <h1>
+          Welcome to {{ title }}!
+        </h1>
+        <!-- <img src='{{ image }}' class='pokemon-image' /> -->
+        <!-- <ul>
+          <li *ngFor="let ability of abilities" (click)="onSelect(ability)">
+            {{ ability | titlecase }} !!
+          </li>
+        </ul> -->
+        <button (click) ="displayPokemon()" class='btn btn-primary'>Get Pokemon info</button>
+        <div class="row" style ="display: inline-flex; justify-content:space-evenly; width:100%; text-align:center;">
+          <ul>
+            <li class="list-group-item" *ngFor="let individual of Pokemon">
+              {{individual.name }} has {{individual.abilities.length }} abilities called:
+              <ul>
+                <li class="list-group-item" *ngFor="let elm of individual.abilities" >
+                  {{elm.ability.name}}
+                <button (click)="findRelatedPokemon(elm.ability.url)" class='btn btn-primary'>Find All Pokemon WIth This ABility!</button>
+                  <ul class="list-group-item" *ngFor="let elm of relatedPokemon">
+                    <li class="list-group-item" *ngFor="let pokemon of elm.pokemon" >
+                      {{pokemon.pokemon.name}}
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<router-outlet></router-outlet>
